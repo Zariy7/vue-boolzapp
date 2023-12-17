@@ -5,3 +5,44 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgb(24, 136, 102) 10%, rgb(206, 204, 179) 10%);
+}
+
+.avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.bg-offwhite{
+    background-color: rgb(196, 192, 192);
+}
+
+.last-message{
+    font-size: small;
+    color: lightgray;
+}
+
+.avatar-container{
+    background-color: white;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    padding: 1rem;
+}
+
+.avatar-container:hover{
+    background-color: rgb(233, 233, 233);
+}
+
+.sent{
+    background-color: green;
+    justify-self: right;
+}
+
+.received{
+    background-color: white;
+    justify-self: left;
+}

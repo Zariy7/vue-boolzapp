@@ -4,14 +4,74 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Tovuelist</title>
         <link rel="stylesheet" href="./css/style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/dcdaab4f9f.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div id="app">
-
+            <div class="container my-5">
+                <div class="row g-0">
+                    <div class="col-4">
+                        <div class="d-flex justify-content-between bg-offwhite p-2">
+                            <div class="d-flex align-items-center">
+                                <img src="./img/avatar_io.jpg" class="avatar">
+                                <div>Sofia</div>
+                            </div>
+                            <div>
+                                <ul class="d-flex align-items-center list-unstyled">
+                                    <li class="mx-2">                                        
+                                        <i class="fa-solid fa-circle-notch fa-xl"></i>
+                                    </li>
+                                    <li class="mx-2">                                        
+                                        <i class="fa-solid fa-message fa-xl"></i>
+                                    </li>
+                                    <li class="mx-2">                                        
+                                        <i class="fa-solid fa-ellipsis-vertical fa-xl"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            notifiche di nuovi messaggi goes here
+                        </div>
+                        <div>
+                            searchbar goes here
+                        </div>
+                        <div>
+                            <div v-for="contact, index in contacts" :key="index" class="d-flex avatar-container" @click="assignChat(index)">
+                                <img :src="contact.avatar" class="avatar">
+                                <div>
+                                    <div>
+                                        {{contact.name}}
+                                    </div>
+                                    <div class="last-message">
+                                        {{contact.messages[contact.messages.length-1].message}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="d-flex bg-offwhite">
+                            <img :src="contacts[viewedChat].avatar" class="avatar">
+                            <div>
+                                <div>
+                                    {{contacts[viewedChat].name}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <div v-for="message, index in contacts[viewedChat].messages" :key="index" :class="message.status == 'sent' ? 'sent' : 'received'">
+                                {{message.message}}
+                            </div>
+                        </div>
+                        <div>
+                            input box goes here
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
