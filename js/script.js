@@ -174,7 +174,7 @@ createApp({
         assignChat(index){
             this.viewedChat = index;
         },
-        chatSend(){
+        chatSend(index){
             if(this.sendMsg != ''){
                 this.contacts[this.viewedChat].messages.push({
                     date: '',
@@ -183,13 +183,13 @@ createApp({
                 });
                 
                 setTimeout(() => {
-                    this.contacts[this.viewedChat].messages.push({
+                    this.contacts[index].messages.push({
                         date: '',
                         message: "Okay.",
                         status: 'received',
                     })
                 }, 1000);
-                
+
                 //console.log(this.contacts[this.viewedChat].messages);
             }
         }

@@ -67,7 +67,7 @@
                             </div>
                         </div>
                         <div>
-                            <input type="text" placeholder="Invia un messaggio..." v-model="sendMsg" @keyup.enter="chatSend" id="input-messages">
+                            <input type="text" placeholder="Invia un messaggio..." v-model="sendMsg" @keyup.enter="chatSend(viewedChat)" id="input-messages">
                         </div>
                     </div>
                 </div>
