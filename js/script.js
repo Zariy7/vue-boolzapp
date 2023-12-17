@@ -167,11 +167,31 @@ createApp({
                 }
             ],
             viewedChat: 0,
+            sendMsg: '',
         }
     },
     methods: {
         assignChat(index){
             this.viewedChat = index;
+        },
+        chatSend(){
+            if(this.sendMsg != ''){
+                this.contacts[this.viewedChat].messages.push({
+                    date: '',
+                    message: this.sendMsg,
+                    status: 'sent',
+                });
+                
+                setTimeout(() => {
+                    this.contacts[this.viewedChat].messages.push({
+                        date: '',
+                        message: "Okay.",
+                        status: 'received',
+                    })
+                }, 1000);
+                
+                //console.log(this.contacts[this.viewedChat].messages);
+            }
         }
     }
 }).mount('#app');
