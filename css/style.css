@@ -7,7 +7,7 @@
 }
 
 body{
-    height: 100vh;
+    height: 110vh;
     background-image: linear-gradient(to bottom, rgb(24, 136, 102) 10%, rgb(206, 204, 179) 10%);
 }
 
@@ -77,4 +77,8 @@ body{
     padding: 1rem;
     border-radius: 50%;
     font-size: larger;
+}
+
+.right-float{
+    float: right;
 }

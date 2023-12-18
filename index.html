@@ -50,14 +50,16 @@
                             <div v-for="contact, index in contacts" :key="index" class="avatar-container" @click="assignChat(index)" :class="viewedChat == index ? 'active' : ''" v-show="contact.visible">
                                 <img :src="contact.avatar" class="avatar">
                                 <div>
-                                    <div>
-                                        <span>
-                                            {{contact.name}}
-                                        </span>
+                                    <div>                                        
+                                        <div>
 
-                                        <span class="small-info">
-                                            {{contacts[viewedChat].messages[contacts[viewedChat].messages.length-1].date}}
-                                        </span>
+                                            {{contact.name}}
+
+                                            <div class="small-info">
+                                                {{contacts[viewedChat].messages[contacts[viewedChat].messages.length-1].date}}
+                                            </div>
+
+                                        </div>
                                     </div>
                                     <div class="small-info">
                                         {{contact.messages[contact.messages.length-1].message}}
@@ -96,15 +98,24 @@
                         </div>
 
                         <div id="current-chat">
-                            <span v-for="message, index in contacts[viewedChat].messages" :key="index" :class="message.status == 'sent' ? 'sent' : 'received'">
+                            <div v-for="message, index in contacts[viewedChat].messages" :key="index" :class="message.status == 'sent' ? 'sent' : 'received'" @mouseover="message.active = true" @mouseleave="message.active = false">
 
-                                {{message.message}}
+                                <div>
+
+                                    {{message.message}}
+
+                                    <button v-show="message.active" class="right-float">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </button>
+
+                                </div>
+
 
                                 <div class="small-info" :class="message.status == 'sent' ? 'text-end' : 'text-start'">
                                     {{message.date}}
                                 </div>
 
-                            </span>
+                            </div>
                         </div>
 
                         <div class="d-flex justify-content-between py-3 align-items-center bg-offwhite p-3">

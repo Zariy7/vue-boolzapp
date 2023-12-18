@@ -212,7 +212,7 @@ createApp({
                 setTimeout(() => {
                     let timenow = luxon.DateTime.now().toObject();
                     let msgTime = `${timenow.day}/${timenow.month}/${timenow.year} ${timenow.hour}:${timenow.minute}:${timenow.second}`;
-                    
+
                     this.contacts[index].messages.push({
                         date: msgTime,
                         message: "Okay.",
