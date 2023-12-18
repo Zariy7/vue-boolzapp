@@ -38,11 +38,23 @@ body{
 }
 
 .sent{
-    background-color: green;
-    justify-self: right;
+    background-color: rgb(68, 187, 68);
+    align-self: end;
 }
 
 .received{
     background-color: white;
-    justify-self: left;
+}
+
+.sent, .received{
+    padding: 0.5rem;
+    margin: 0.5rem;
+    width: 35%;
+    border-radius: 10px;
+}
+
+#current-chat{
+    background-image: url('../img/mine.jpg');
+    display: flex;
+    flex-direction: column;
 }
