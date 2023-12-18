@@ -189,6 +189,7 @@ createApp({
             ],
             viewedChat: 0,
             sendMsg: '',
+            searched: '',
         }
     },
     methods: {
@@ -221,6 +222,17 @@ createApp({
             if(this.contacts[this.viewedChat].messages.length == 0){
                 this.contacts[this.viewedChat].messages = [''];
             }
+        },
+        chatSearch(){
+            console.log(this.searched);
+            this.contacts.forEach(elem => {
+                if(elem.name.toLowerCase().includes(this.searched.toLowerCase()) == false){
+                    elem.visible = false;
+                }
+                else{
+                    elem.visible = true;
+                }
+            });
         }
     }
 }).mount('#app');

@@ -10,7 +10,7 @@
     </head>
     <body>
         <div id="app">
-            <div class="container my-5">
+            <div class="container my-5" id="boolzapp">
                 <div class="row g-0">
                     <div class="col-4 overflow-auto">
                         <div class="d-flex justify-content-between bg-offwhite p-2">
@@ -32,14 +32,22 @@
                                 </ul>
                             </div>
                         </div>
-                        <div>
-                            notifiche di nuovi messaggi goes here
+                        <div class="d-flex align-items-center bg-lightblue p-2">
+                            <i class="fa-solid fa-bell-slash"></i>
+                            <div>
+                                <div>
+                                    Ricevi notifiche di nuovi messaggi
+                                </div>
+                                <div>
+                                    <u>Attiva notifiche desktop</u>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-offwhite">
+                            <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat..." v-model="searched" @keyup="chatSearch">
                         </div>
                         <div>
-                            searchbar goes here
-                        </div>
-                        <div>
-                            <div v-for="contact, index in contacts" :key="index" class="d-flex avatar-container" @click="assignChat(index)">
+                            <div v-for="contact, index in contacts" :key="index" class="avatar-container" @click="assignChat(index)" :class="viewedChat == index ? 'active' : ''" v-show="contact.visible">
                                 <img :src="contact.avatar" class="avatar">
                                 <div>
                                     <div>
