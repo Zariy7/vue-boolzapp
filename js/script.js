@@ -198,22 +198,30 @@ createApp({
         },
         chatSend(index){
             if(this.sendMsg != ''){
+                
+                let timenow = luxon.DateTime.now().toObject();
+                let msgTime = `${timenow.day}/${timenow.month}/${timenow.year} ${timenow.hour}:${timenow.minute}:${timenow.second}`;
+
                 this.contacts[this.viewedChat].messages.push({
-                    date: '',
+                    date: msgTime,
                     message: this.sendMsg,
                     status: 'sent',
                     hover: false,
                 });
                 
                 setTimeout(() => {
+                    let timenow = luxon.DateTime.now().toObject();
+                    let msgTime = `${timenow.day}/${timenow.month}/${timenow.year} ${timenow.hour}:${timenow.minute}:${timenow.second}`;
+                    
                     this.contacts[index].messages.push({
-                        date: '',
+                        date: msgTime,
                         message: "Okay.",
                         status: 'received',
                     })
                 }, 1000);
 
                 //console.log(this.contacts[this.viewedChat].messages);
+                this.sendMsg = '';
             }
         },
         chatDelete(index){

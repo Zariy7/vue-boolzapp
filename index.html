@@ -51,9 +51,15 @@
                                 <img :src="contact.avatar" class="avatar">
                                 <div>
                                     <div>
-                                        {{contact.name}}
+                                        <span>
+                                            {{contact.name}}
+                                        </span>
+
+                                        <span class="small-info">
+                                            {{contacts[viewedChat].messages[contacts[viewedChat].messages.length-1].date}}
+                                        </span>
                                     </div>
-                                    <div class="last-message">
+                                    <div class="small-info">
                                         {{contact.messages[contact.messages.length-1].message}}
                                     </div>
                                 </div>
@@ -94,6 +100,10 @@
 
                                 {{message.message}}
 
+                                <div class="small-info" :class="message.status == 'sent' ? 'text-end' : 'text-start'">
+                                    {{message.date}}
+                                </div>
+
                             </span>
                         </div>
 
@@ -107,6 +117,7 @@
             </div>
         </div>
 
+        <script src=" https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
         <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
         <script src="./js/script.js"></script>
     </body>
