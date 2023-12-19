@@ -190,6 +190,11 @@ createApp({
             viewedChat: 0,
             sendMsg: '',
             searched: '',
+            components: {
+                option_1: 'Message Information',
+                option_2: 'Delete Message'
+            },
+            makeComponents: false,
         }
     },
     methods: {

@@ -98,15 +98,23 @@
                         </div>
 
                         <div id="current-chat">
-                            <div v-for="message, index in contacts[viewedChat].messages" :key="index" :class="message.status == 'sent' ? 'sent' : 'received'" @mouseover="message.active = true" @mouseleave="message.active = false">
+                            <div v-for="message, index in contacts[viewedChat].messages" :key="index" :class="message.status == 'sent' ? 'sent' : 'received'" @mouseover="message.active = true" @mouseleave="message.active = false, makeComponents = false">
 
                                 <div>
 
                                     {{message.message}}
 
-                                    <button v-show="message.active" class="right-float">
+                                    <button v-show="message.active" class="right-float" @click="makeComponents = !makeComponents">
                                         <i class="fa-solid fa-chevron-down"></i>
                                     </button>
+                                    <div v-show="makeComponents && message.active">
+                                        <div>
+                                            {{components.option_1}}
+                                        </div>
+                                        <div @click="chatDelete(index), makeComponents = false">
+                                            {{components.option_2}}
+                                        </div>
+                                    </div>
 
                                 </div>
 
